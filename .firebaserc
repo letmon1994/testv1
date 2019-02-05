@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "staging": "hostingreact-1ca13",
+    "default": "hostingreact-1ca13"
+  }
+}

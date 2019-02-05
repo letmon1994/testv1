@@ -1,0 +1,50 @@
+body {
+  background-color: #660000;
+  padding: 20px;
+  margin: 0;
+}
+h1, h2, p, ul, li {
+  font-family: sans-serif;
+}
+ul.header li {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+}
+ul.header {
+  background-color: #111;
+  padding: 0;
+}
+ul.header li a {
+  color: #FFF;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 20px;
+  display: inline-block;
+}
+.content {
+  background-color: #FFF;
+  padding: 20px;
+}
+.content h2 {
+  padding: 0;
+  margin: 0;
+}
+.content li {
+  margin-bottom: 10px;
+}
+.active {
+  background-color: #7f0000;
+}
+
+/* state = {
+  activeFighter: []
+} */
+
+/* componentDidMount = async () => {
+  const name = this.props.location.state.fighter;
+  const req = await fetch ('https://cors-anywhere.herokuapp.com/http://ufc-data-api.ufc.com/api/v3/iphone/fighters');
+  const res = await req.json();
+  this.setState({activeFighter: res.fighters[0]});
+  console.log(this.state.activeFighter);
+} */
