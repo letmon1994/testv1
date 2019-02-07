@@ -21,14 +21,15 @@ class UserCard extends React.Component {
           <div className="card-content">
             <div className="media">
               <div className="media-content">
-                <p className="title is-4">{this.props.name} {this.props.lName}</p>
-                {this.props.weightC ? <p className="subtitle">{this.props.weightC}</p> : null}
+                <p className="title is-4">{this.props.name} {this.props.lName}</p> <br></br>
+                {this.props.weightC ? <p className="subtitle"><p className="title is-4"> Divsion: </p>{this.props.weightC}</p> : null}
               </div>
             </div>
           </div>
            <footer class="card-footer">
              <button class="card-footer-item">
-                <Link to={{ pathname: `/fighter/${this.props.user_id}`, state: {fighter: this.props.name}}}>See Fighter Information</Link>
+                <Link to={{ pathname: `/fighter/${this.props.id}`, fighter: this.props}}>See Fighter Information</Link>
+
              </button>
           </footer>
         </div>

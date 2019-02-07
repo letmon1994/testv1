@@ -9,7 +9,7 @@ class Input extends React.Component {
         </div>
         <div className="field-body">
           <div className="field">
-            <div className="control ">
+            <div className="control is-4">
               <input name={this.props.name} value={this.props.value} onChange={this.props.handleChange} className="input" type="text" placeholder={this.props.placeholder} />
             </div>
           </div>

@@ -3,7 +3,6 @@ import UserCard from './UserCard';
 import DropDown from './DropDown';
 import RadioButton from './RadioButton';
 import Input from './Input';
-//import ToggleButton from './ToggleButton';
 import axios from 'axios';
 //import Fighter from './Fighter';
 
@@ -18,10 +17,8 @@ class Home extends React.Component {
       weightClassValues: [],
       sort: 'no',
       searchText: '',
-      //contrastMode: false
     };
     this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
     // this.handleSearch = this.handleSearch.bind(this);
   }
 
@@ -38,11 +35,17 @@ class Home extends React.Component {
           lName: fighter.last_name,
           image: fighter.profile_image,
           tHolder: fighter.title_holder,
-          weightClass: fighter.weight_class};
+          weightClass: fighter.weight_class,
+          nickName: fighter.nickname,
+          fighterStatus: fighter.fighter_status,
+          wins: fighter.wins,
+          draws: fighter.draws,
+          losses: fighter.losses
+          };
       });
       this.setState({fighters: fighters, filteredFighter: fighters});
 
-      // sort and remove duplicate nationalities
+      // sort and remove duplicate weight class
       // store the result in state to be used for the dropdown menu options
       const weightC = fighters.map(fighter => {
         return fighter.weightClass;
@@ -66,13 +69,6 @@ class Home extends React.Component {
     });
   }
 
-  handleClick(event) {
-    // handle the toggle <button>
-    const name = event.target.name;
-    this.setState(prevState => ({
-       [name]: !prevState[name]
-    }));
-  }
 
   // handleSearch(event){
   //   this.setState({
@@ -103,7 +99,7 @@ class Home extends React.Component {
     // Each card needs a unique key, for our purposes we're using
     // name + image URL (not guaranteed to be unique, but sufficient for this)
     // Check the state of the inputs and skip cards not matching the
-    // required nationality & gender & search text
+    // required weight class & title holder & search text
     let fighterList = data.map(fighter => {
       // console.log(this.state.tHolderSelected);
       // console.log(fighter.tHolder);
@@ -112,21 +108,27 @@ class Home extends React.Component {
       // const nameMatch = fighter.name.toLowerCase().startsWith(this.state.searchText.toLowerCase());
       const nameMatch = fighter.name.toLowerCase().indexOf(this.state.searchText) >= 0;
       return (tHolderMatch && weightCMatch && nameMatch) ? (
-        <UserCard name={fighter.name} lName={fighter.lName} image={fighter.image} weightC={fighter.weightClass}/>
+        <UserCard id= {fighter.key} name={fighter.name} lName={fighter.lName} image={fighter.image} weightC={fighter.weightClass} fighterStatus={fighter.fighterStatus} nickName={fighter.nickName} wins={fighter.wins} draws={fighter.draws} losses={fighter.losses} titleHolder={fighter.tHolder.toString()}/>
       ) : null;
     });
 
     return (
       <section className="section">
-        <div className={this.state.contrastMode ? "notification is-success" : "notification"}>
+        <div class="container">
 
+        <div class="columns is-two-fifths">
+          <div class="column is-7">
           <Input name="searchText" label="Search by name" value={this.state.searchText} handleChange={this.handleChange} placeholder={"e.g. conor"} />
+          </div>
 
-          <DropDown options={['all','true','false']} name="tHolderSelected" handleChange={this.handleChange} label="Filter by title holder" selected={this.state.tHolderSelected} />
+          <div class="column is-vcentered">
+          <DropDown options={['all','true','false']} name="tHolderSelected" handleChange={this.handleChange} label="Title Holder" selected={this.state.tHolderSelected} />
 
-          <DropDown options={['all'].concat(this.state.weightClassValues)} name="weightClassSelected" handleChange={this.handleChange} label="Filter by weight Class" selected={this.state.weightClassSelected} />
+          <DropDown options={['all'].concat(this.state.weightClassValues)} name="weightClassSelected" handleChange={this.handleChange} label=" Weight Class" selected={this.state.weightClassSelected} />
 
           <RadioButton handleChange={this.handleChange} checked={this.state.sort}/>
+          </div>
+        </div>
 
     			<div className="columns is-multiline">
             {fighterList}
@@ -138,6 +140,5 @@ class Home extends React.Component {
   }
 }
 
+//Export component
 export default Home;
-
-//<ToggleButton name="contrastMode" handleClick={this.handleClick} toggle={this.state.contrastMode} labelOn="Switch to low contrast" labelOff="Switch to high contrast" />

@@ -7,10 +7,10 @@ class DropDown extends React.Component {
     });
     return (
       <div className="field is-horizontal">
-        <div className="field-label is-normal">
+        <div className="field-label">
           <label className="label">{this.props.label}</label>
         </div>
-        <div className="field-body">
+        <div className="field-body" style={{'justifty-content':'space-between'}}>
           <div className="field is-narrow">
             <div className="control">
               <div className="select is-fullwidth">

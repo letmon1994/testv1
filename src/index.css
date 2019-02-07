@@ -3,7 +3,7 @@ body {
   padding: 20px;
   margin: 0;
 }
-h1, h2, p, ul, li {
+h2, p, ul, li {
   font-family: sans-serif;
 }
 ul.header li {
@@ -36,6 +36,69 @@ ul.header li a {
 .active {
   background-color: #7f0000;
 }
+
+h1 {
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 80px;
+  color: #000000 ;
+}
+
+/*return (
+  <section className="section">
+    <div
+      className={
+        this.state.contrastMode ? "notification is-success" : "notification"
+      }
+    >
+      <table>
+        <tr>
+          <Input
+            name="searchText"
+            label="Search by name"
+            value={this.state.searchText}
+            handleChange={this.handleChange}
+            placeholder={"e.g. conor"}
+          />
+        </tr>
+        <tr>
+          <td>
+            {" "}
+            <DropDown
+              options={["all", "true", "false"]}
+              name="tHolderSelected"
+              handleChange={this.handleChange}
+              label="Filter by title holder"
+              selected={this.state.tHolderSelected}
+            />
+          </td>
+          <td>
+            {" "}
+            <DropDown
+              options={["all"].concat(this.state.weightClassValues)}
+              name="weightClassSelected"
+              handleChange={this.handleChange}
+              label="Filter by weight Class"
+              selected={this.state.weightClassSelected}
+            />
+          </td>
+          <td>
+            {" "}
+            <RadioButton
+              handleChange={this.handleChange}
+              checked={this.state.sort}
+            />
+          </td>
+        </tr>
+      </table>
+
+      <div className="columns is-multiline">{fighterList}</div>
+    </div>
+  </section>
+);
+}
+}
+*/
 
 /* state = {
   activeFighter: []
