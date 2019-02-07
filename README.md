@@ -5,6 +5,6 @@ If a fighter card in the list is clicked where the link that says "view fighters
 
 There is a puond for pound page that if the user clicks, will be direct to a table listing information about the fighter.
 
-The application was created using React and it was styled using Bulma.
+The application was created using React and it was styled using Bulma|(https://bulma.io/).
 
 My application is hosted on firebase: Live Demo.
