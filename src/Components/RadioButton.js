@@ -5,7 +5,7 @@ class RadioButton extends React.Component {
   render() {
     return (
       <div className="field is-horizontal">
-        <div className="field-label">
+        <div className="field-vertical">
           <label className="label">Sort by name?</label>
         </div>
         <div className="field-body">

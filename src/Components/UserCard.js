@@ -1,11 +1,4 @@
-/* React Example - UserCard used in the UserProfileList Demo
-USING PROPTYPES - https://reactjs.org/docs/typechecking-with-proptypes.html
-Styled using Bulma (https://bulma.io).
-- AE 12/02/18
-*/
-
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 
 class UserCard extends React.Component {
@@ -37,20 +30,5 @@ class UserCard extends React.Component {
     );
   }
 }
-
-// Specifies the default values for props:
-UserCard.defaultProps = {
-  first_name: 'randomuser',
-  image: 'http://via.placeholder.com/600x600',
-  weight_class: ''
-};
-
-// Checks that the correct type of props are supplied:
-UserCard.propTypes = {
-  first_name: PropTypes.string,
-  last_class: PropTypes.string,
-  image: PropTypes.string,
-  weight_class: PropTypes.string
-};
 
 export default UserCard;

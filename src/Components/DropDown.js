@@ -7,7 +7,7 @@ class DropDown extends React.Component {
     });
     return (
       <div className="field is-horizontal">
-        <div className="field-label">
+        <div className="field is-vertical">
           <label className="label">{this.props.label}</label>
         </div>
         <div className="field-body" style={{'justifty-content':'space-between'}}>
